@@ -88,15 +88,20 @@
         }
     }, false);
 
-    if (doc.readyState === 'complete') {
-        doc.body.style.fontSize = 12 * dpr + 'px';
+    function setFontSize(dom) {
+        dom.style.fontSize = 12 * dpr + 'px';
+    }
+
+    if (doc.body) {
+        setFontSize(doc.body);
+    } else if (doc.readyState === 'complete') {
+        setFontSize(doc.body);
     } else {
         doc.addEventListener('DOMContentLoaded', function(e) {
-            doc.body.style.fontSize = 12 * dpr + 'px';
+            setFontSize(doc.body);
         }, false);
     }
     
-
     refreshRem();
 
     flexible.dpr = win.dpr = dpr;
