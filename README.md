@@ -24,8 +24,6 @@
 
 建议对于js做`内联处理`，在**所有资源加载之前**执行这个js。
 
-建议放入 `body` 子元素的第一个位置，这样能最快速设置样式到 body 上。
-
 执行这个js后，会在`html`（也就是document.documentElement）上增加一个`data-dpr`属性，以及`font-size`样式。
 
 之后页面中的元素，都可以用rem单位来设置。`html`上的`font-size`就是rem的基准像素。
