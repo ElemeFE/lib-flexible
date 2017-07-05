@@ -5,6 +5,7 @@
     var flexibleEl = doc.querySelector('meta[name="flexible"]');
     var flexibleInX5El = doc.querySelector('meta[name="flexible-in-x5"]');
     var flexibleInX5 = true
+    var blackUAList = ['MI MAX']
     var dpr = 0;
     var scale = 0;
     var tid;
@@ -43,7 +44,10 @@
         var isIPhone = win.navigator.appVersion.match(/iphone/gi);
         var devicePixelRatio = win.devicePixelRatio;
         var isX5 = /TBS\/\d+/.test(win.navigator.userAgent)
-        if (isIPhone || isChrome || (isX5 && flexibleInX5)) {
+        var notInBlackList = blackUAList.every(function(ua) {
+            return !new RegExp(ua).test(navigator.userAgent)
+        })
+        if (isIPhone || isChrome || (isX5 && flexibleInX5) && notInBlackList) {
             // iOS下，对于2和3的屏，用2倍的方案，其余的用1倍方案
             if (devicePixelRatio >= 3 && (!dpr || dpr >= 3)) {
                 dpr = 3;
