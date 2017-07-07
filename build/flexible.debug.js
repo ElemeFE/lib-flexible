@@ -44,10 +44,13 @@
         var isIPhone = win.navigator.appVersion.match(/iphone/gi);
         var devicePixelRatio = win.devicePixelRatio;
         var isX5 = /TBS\/\d+/.test(win.navigator.userAgent)
-        var notInBlackList = blackUAList.every(function(ua) {
-            return !new RegExp(ua).test(navigator.userAgent)
-        })
-        if (isIPhone || isChrome || (isX5 && flexibleInX5) && notInBlackList) {
+        var isInWhiteList = false
+        try {
+          isInWhiteList = localStorage.getItem('IN_FLEXIBLE_WHITE_LIST') === 'true'
+        } catch (e) {
+          isInWhiteList = false
+        }
+        if (isIPhone || isChrome || (isX5 && flexibleInX5 && isInWhiteList)) {
             // iOS下，对于2和3的屏，用2倍的方案，其余的用1倍方案
             if (devicePixelRatio >= 3 && (!dpr || dpr >= 3)) {
                 dpr = 3;
