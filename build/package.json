@@ -1,7 +1,7 @@
 {
   "name": "lib.flexible",
   "description": "移动端自适应方案",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "homepage": "http://gitlab.alibaba-inc.com/mtb/lib-flexible",
   "author": [
     {
