@@ -80,8 +80,8 @@
         }
     }
 
-    function refreshRem(){
-        var width = docEl.getBoundingClientRect().width;
+    function refreshRem() {
+        var width = flexible.width || docEl.getBoundingClientRect().width;
         // if (width / dpr > 540) {
         //     width = 540 * dpr;
         // }

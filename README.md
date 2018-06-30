@@ -4,7 +4,7 @@
 
 ## 最新版本
 
-**0.3.2**
+**0.4.0**
 
 ## 用Grunt打包
 
@@ -66,6 +66,9 @@
     <meta name="flexible" content="initial-dpr=2,maximum-dpr=3" />
 
 其中`initial-dpr`会把dpr强制设置为给定的值，`maximum-dpr`会比较系统的dpr和给定的dpr，取最小值。**注意：这两个参数只能选其一。**
+
+### (new) 手动设置width基准值得方法
+手动设置 lib.flexible.width 为你想要的值，然后调用 refreshRem 方法即可。
 
 ### 手动设置rem基准值的方法
 
